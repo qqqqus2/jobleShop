@@ -27924,14 +27924,72 @@ html.ios .bottom-fixed > .btn-wrap {
 }
 
 /* header */
-#header .btn-menu {
-  width: 3.2rem;
-  height: 3.2rem;
+#header .inner {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 0.1rem solid #d9d9d9;
+  padding: 0 2rem 0 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 72px;
+  position: fixed;
+  top: 0;
+  z-index: 30;
+  width: 100%;
+  background-color: #fff;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+#header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+#header .logo::before {
+  content: "";
+  display: block;
+  margin-right: 0.2rem;
+  width: 2rem;
+  height: 2rem;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  background-image: url("../img/logo.png");
+}
+#header .btn-search {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.4rem;
+  border-radius: 0;
   padding: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 8.00033C4 7.26395 4.59695 6.66699 5.33333 6.66699H26.6667C27.403 6.66699 28 7.26395 28 8.00033C28 8.73671 27.403 9.33366 26.6667 9.33366H5.33333C4.59695 9.33366 4 8.73671 4 8.00033ZM4 16.0003C4 15.2639 4.59695 14.667 5.33333 14.667H26.6667C27.403 14.667 28 15.2639 28 16.0003C28 16.7367 27.403 17.3337 26.6667 17.3337H5.33333C4.59695 17.3337 4 16.7367 4 16.0003ZM4 24.0003C4 23.2639 4.59695 22.667 5.33333 22.667H26.6667C27.403 22.667 28 23.2639 28 24.0003C28 24.7367 27.403 25.3337 26.6667 25.3337H5.33333C4.59695 25.3337 4 24.7367 4 24.0003Z' fill='black'/%3E%3C/svg%3E");
+  margin-left: 0.8rem;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0976 20.6834 22.0976 20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18C5.58172 18 2 14.4183 2 10Z' fill='black'/%3E%3C/svg%3E%0A");
 }
 
 .gnbOpen #header .btn-menu {
@@ -27958,10 +28016,10 @@ html.ios .bottom-fixed > .btn-wrap {
 }
 
 #wrap {
-  padding-bottom: 30rem;
+  padding-bottom: 15rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  height: 100vh;
   min-height: 50rem;
-  height: calc(100vh - 15rem);
   position: relative;
 }
