@@ -1,0 +1,17 @@
+{
+    "liveSassCompile.settings.includeItems": ["/src/assets/scss/front.scss"],
+    "liveSassCompile.settings.formats": [
+        {
+            // "format": "compressed",
+            // "extensionName": ".min.css",
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/src/assets/css"
+        }
+    ],
+    "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+    "liveSassCompile.settings.generateMap": false,
+    "liveServer.settings.port": 9790,
+    "editor.tabSize": 2,
+    "nuxt.isNuxtApp": false
+}

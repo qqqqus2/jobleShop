@@ -1,0 +1,54 @@
+@use 'sass:math';
+
+// primary color
+$primary-color: #0055b9;
+$primary-hover: #0a2d71;
+$primary-pressed: #095dd9;
+$primary-blue1: #aaccff;
+$primary-blue2: #e1eaf7;
+$primary-blue3: #eff3f8;
+$primary-blue4: #034dbf;
+
+// sub color
+$error-color: #e00c3e;
+$error-bg: #fee4e2;
+$system-ok: #049a6d;
+$point-purple: #9669f9;
+$point-green: #20bb94;
+
+// gray scale
+$black-color: #000;
+$white-color: #fff;
+$base-txt-color: #222;
+$text-body-color: #666;
+$text-sub-color: #444;
+$placeholder: #727272;
+$box-line: #d9d9d9;
+$line-color: #ededf0;
+$disable-color: #d9d9d9;
+$background-color: #f5f5f5;
+$readonly-color: #f4f4f7;
+$title-txt-color: #222;
+
+// form color
+$input-line: #949494;
+$input-focus-line: #1573e1;
+$input-disabled-line: #e7e9ed;
+$input-disabled-bg: #f4f5f8;
+$input-txt: #222;
+$input-disabled-txt: #ccc;
+
+//border-radius
+$br-12: 1.2rem;
+$br-20: 2rem;
+$br-24: 2.4rem;
+$br-40: 4rem;
+$br-100: 10rem;
+
+$base-padding: 2rem;
+
+/* 공통 팝업 동작 시간 */
+:root {
+  --pop-move-time: 0.4s;
+  --pop-dimm-time: 0.1s;
+}

@@ -1,0 +1,249 @@
+@use 'sass:math';
+/* @mixin */
+@use 'sass:selector';
+
+@function -vw($size, $contentWidth: 1920) {
+  @return math.div($size, $contentWidth) * 100vw;
+}
+
+@function -per($height, $width) {
+  @return math.div($height, $width) * 100%;
+}
+
+@function -vh($val: 1, $add: null, $isMinus: false) {
+  @if ($add) {
+    @if ($isMinus) {
+      @return calc((var(--vh) * #{$val}) - #{$add});
+    } @else {
+      @return calc((var(--vh) * #{$val}) + #{$add});
+    }
+  } @else {
+    @return calc(var(--vh) * #{$val});
+  }
+}
+
+// selector
+@mixin unify-parent($child) {
+  @at-root #{selector.unify(&, $child)} {
+    @content;
+  }
+}
+
+@mixin media-max-width($size) {
+  @media (max-width:#{$size}px) {
+    @content;
+  }
+}
+
+@mixin media-min-height($size) {
+  @media (min-height:#{$size}px) {
+    @content;
+  }
+}
+
+@mixin media-min-width($size) {
+  @media (min-width:#{$size}px) {
+    @content;
+  }
+}
+
+@mixin media-max-height($size) {
+  @media (max-height:#{$size}px) {
+    @content;
+  }
+}
+
+@mixin sticky-supports {
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    @content;
+  }
+}
+
+@mixin when-is($element-selector) {
+  @at-root #{$element-selector + &} {
+    @content;
+  }
+}
+
+@mixin class-begins($class, $mark: false) {
+  @if ($mark) {
+    #{$mark}[class^='#{$class}'],
+    #{$mark}[class*=' #{$class}'] {
+      @content;
+    }
+  } @else {
+    [class^='#{$class}'],
+    [class*=' #{$class}'] {
+      @content;
+    }
+  }
+}
+
+// css
+@mixin text-blind {
+  font-size: 0.3rem;
+  //font-size: 0;
+  color: transparent;
+}
+
+@mixin ellipsis($line: 0) {
+  overflow: hidden;
+  word-break: break-all;
+
+  @if ($line ==0) {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
+}
+
+@mixin clear-fix {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@mixin bg-etc($size: contain, $position: center center) {
+  background-repeat: no-repeat;
+  background-position: $position;
+
+  @if $size {
+    background-size: $size;
+  }
+}
+
+@mixin img-fit($isAbsolute: false, $type: cover) {
+  @if $isAbsolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  width: 100%;
+  height: 100%;
+  object-fit: $type;
+}
+
+@mixin outer($isPadding: false) {
+  margin-left: var(--outer-padding);
+  margin-right: var(--outer-padding);
+
+  @if $isPadding {
+    padding-left: $base-padding;
+    padding-right: $base-padding;
+  }
+}
+
+@mixin ff-pps($weight: 600) {
+  font-family: 'Poppins';
+  font-weight: $weight;
+}
+
+@mixin scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin scroll-y {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin scroll-padding($padding: null) {
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    flex-shrink: 0;
+
+    @if $padding {
+      width: #{$padding}rem;
+    } @else {
+      width: $base-padding;
+    }
+  }
+}
+
+@mixin scroll-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin web-center($isInner: false) {
+  @if ($isInner) {
+    max-width: calc(102.4rem - ($base-padding * 2));
+  } @else {
+    max-width: 102.4rem;
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin web-center-fixed {
+  left: 50%;
+  margin-left: -51.2rem;
+}
+
+@mixin dimm($value: 0.5, $blur: 1) {
+  background-color: rgba(0, 0, 0, $value);
+
+  @if ($blur > 0) {
+    backdrop-filter: blur(#{$blur}px);
+  }
+}
+
+@mixin dimm-white($value: 0.95, $blur: 1) {
+  background: rgba(255, 255, 255, $value);
+
+  @if ($blur > 0) {
+    backdrop-filter: blur(#{$blur}px);
+  }
+}
+
+@mixin ios-top($key, $value: 0, $miuns: false) {
+  // #{$key}: $value;
+  @if ($miuns) {
+    #{$key}: -iosConstant($value, true, true);
+    #{$key}: -iosEnv($value, true, true);
+  } @else {
+    #{$key}: -iosConstant($value, true, false);
+    #{$key}: -iosEnv($value, true, false);
+  }
+}
+
+@mixin ios-bottom($key, $value: 0, $miuns: false) {
+  // #{$key}: $value;
+  @if ($miuns) {
+    #{$key}: -iosConstant($value, false, true);
+    #{$key}: -iosEnv($value, false, true);
+  } @else {
+    #{$key}: -iosConstant($value, false, false);
+    #{$key}: -iosEnv($value, false, false);
+  }
+}
+
+@mixin rotateZ($value) {
+  transform: rotate3d(1, 0, 0, #{$value}deg);
+
+  html.ios & {
+    transform: rotate(-#{$value}deg);
+  }
+}
+
+@mixin is-native {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@mixin font($size, $weight, $lineHeight) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}

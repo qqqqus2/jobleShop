@@ -1,0 +1,49 @@
+/* header */
+#header {
+    .btn-menu {
+        width: 3.2rem;
+        height: 3.2rem;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 8.00033C4 7.26395 4.59695 6.66699 5.33333 6.66699H26.6667C27.403 6.66699 28 7.26395 28 8.00033C28 8.73671 27.403 9.33366 26.6667 9.33366H5.33333C4.59695 9.33366 4 8.73671 4 8.00033ZM4 16.0003C4 15.2639 4.59695 14.667 5.33333 14.667H26.6667C27.403 14.667 28 15.2639 28 16.0003C28 16.7367 27.403 17.3337 26.6667 17.3337H5.33333C4.59695 17.3337 4 16.7367 4 16.0003ZM4 24.0003C4 23.2639 4.59695 22.667 5.33333 22.667H26.6667C27.403 22.667 28 23.2639 28 24.0003C28 24.7367 27.403 25.3337 26.6667 25.3337H5.33333C4.59695 25.3337 4 24.7367 4 24.0003Z' fill='black'/%3E%3C/svg%3E");
+    }
+}
+.gnbOpen {
+    #header {
+        .btn-menu {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.05752 7.05703C7.57822 6.53633 8.42244 6.53633 8.94313 7.05703L16.0003 14.1142L23.0575 7.05703C23.5782 6.53633 24.4224 6.53633 24.9431 7.05703C25.4638 7.57773 25.4638 8.42195 24.9431 8.94265L17.8859 15.9998L24.9431 23.057C25.4638 23.5777 25.4638 24.4219 24.9431 24.9426C24.4224 25.4633 23.5782 25.4633 23.0575 24.9426L16.0003 17.8855L8.94313 24.9426C8.42244 25.4633 7.57822 25.4633 7.05752 24.9426C6.53682 24.4219 6.53682 23.5777 7.05752 23.057L14.1147 15.9998L7.05752 8.94265C6.53682 8.42195 6.53682 7.57773 7.05752 7.05703Z' fill='%231A1B1D'/%3E%3C/svg%3E");
+        }
+    }
+}
+
+.inner {
+    max-width: 120rem;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+/* footer */
+#footer {
+    position: absolute;
+    background-color: $box-line;
+    height: 15rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .inner {
+        padding: 2rem;
+    }
+}
+
+#wrap {
+    padding-bottom: 30rem;
+    box-sizing: border-box;
+    min-height: 50rem;
+    height: calc(100vh - 15rem);
+    position: relative;
+}
+
+#container {
+}
