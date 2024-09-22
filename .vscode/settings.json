@@ -13,5 +13,9 @@
     "liveSassCompile.settings.generateMap": false,
     "liveServer.settings.port": 9790,
     "editor.tabSize": 2,
-    "nuxt.isNuxtApp": false
+    "nuxt.isNuxtApp": false,
+    "prettier.tabWidth": 2,
+    "prettier.singleQuote": true,
+    "prettier.printWidth": 9999,
+    "prettier.trailingComma": "none"
 }

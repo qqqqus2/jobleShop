@@ -1,0 +1,185 @@
+/* input reset */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* 공통 input 스타일 시작 */
+.input-box {
+  position: relative;
+  font-size: 1.4rem;
+  input {
+    color: $input-txt;
+    border-color: transparent;
+    background-color: transparent;
+    font-weight: 400;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.4rem;
+  }
+  &.inline-flex {
+    .inline-flex + .btn {
+      margin-left: 0.8rem;
+      min-width: 10rem;
+      width: auto;
+
+      @include media-min-width(1025) {
+        margin-left: 1.2rem;
+        min-width: 20rem;
+      }
+    }
+  }
+
+  // 인풋 이외의 요소들
+  .input-etc {
+    position: relative;
+    margin-left: auto;
+    display: inline-flex;
+    //gap: 0 0.8rem;
+    padding-left: 0.8rem;
+    align-items: center;
+
+    .remain-time {
+      color: $primary-color;
+      word-break: normal;
+      @include font(1.3rem, 400, 1.8rem);
+      word-break: keep-all;
+    }
+
+    button {
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      font-size: 0;
+      margin: 0;
+      background-size: contain;
+      background-position: center;
+      border: 0;
+      background-repeat: no-repeat;
+
+      &.input-del {
+        opacity: 0;
+        width: 0;
+        flex: 0 0 auto;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.6665 10.0003C1.6665 5.39795 5.39746 1.66699 9.99984 1.66699C14.6022 1.66699 18.3332 5.39795 18.3332 10.0003C18.3332 14.6027 14.6022 18.3337 9.99984 18.3337C5.39746 18.3337 1.6665 14.6027 1.6665 10.0003ZM7.19142 7.19191C7.48728 6.89606 7.96695 6.89606 8.2628 7.19191L9.99984 8.92895L11.7369 7.19191C12.0327 6.89606 12.5124 6.89606 12.8083 7.19191C13.1041 7.48776 13.1041 7.96743 12.8083 8.26329L11.0712 10.0003L12.8083 11.7374C13.1041 12.0332 13.1041 12.5129 12.8083 12.8087C12.5124 13.1046 12.0327 13.1046 11.7369 12.8087L9.99984 11.0717L8.2628 12.8087C7.96695 13.1046 7.48728 13.1046 7.19142 12.8087C6.89557 12.5129 6.89557 12.0332 7.19142 11.7374L8.92846 10.0003L7.19142 8.26329C6.89557 7.96743 6.89557 7.48776 7.19142 7.19191Z' fill='%23727272'/%3E%3C/svg%3E");
+      }
+
+      &.show-toggle {
+        margin-left: 0.8rem;
+      }
+
+      &.show-toggle.off {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.91074 1.91058C2.23618 1.58514 2.76382 1.58514 3.08926 1.91058L5.62283 4.44416C6.92414 3.73567 8.41621 3.33317 10.0004 3.33317C14.1061 3.33317 17.5794 6.03189 18.7472 9.75016C18.7983 9.91272 18.7983 10.087 18.7472 10.2496C18.2033 11.9814 17.1603 13.4903 15.7877 14.609L18.0893 16.9106C18.4147 17.236 18.4147 17.7637 18.0893 18.0891C17.7638 18.4145 17.2362 18.4145 16.9107 18.0891L1.91074 3.08909C1.58531 2.76366 1.58531 2.23602 1.91074 1.91058ZM6.8637 5.68503L8.30682 7.12814C8.80302 6.83508 9.38218 6.6665 10 6.6665C11.841 6.6665 13.3333 8.15889 13.3333 9.99984C13.3333 10.6177 13.1648 11.1968 12.8717 11.693L14.6017 13.423C15.7242 12.5497 16.5914 11.3648 17.0739 9.99985C16.0441 7.08604 13.2648 4.99984 10.0004 4.99984C8.87957 4.99984 7.81751 5.2452 6.8637 5.68503ZM11.6103 10.4317C11.6471 10.294 11.6667 10.1493 11.6667 9.99984C11.6667 9.07936 10.9205 8.33317 10 8.33317C9.85054 8.33317 9.70582 8.35273 9.56816 8.38949L11.6103 10.4317ZM3.85407 6.81132C4.22106 7.08905 4.29343 7.6117 4.0157 7.9787C3.5552 8.5872 3.18569 9.26762 2.9269 9.99981C3.95666 12.9136 6.73592 14.9998 10.0004 14.9998C10.4819 14.9998 10.9521 14.9546 11.4071 14.8683C11.8593 14.7825 12.2954 15.0796 12.3811 15.5318C12.4669 15.9839 12.1698 16.42 11.7176 16.5058C11.1608 16.6114 10.5866 16.6665 10.0004 16.6665C5.89461 16.6665 2.42133 13.9678 1.2535 10.2495C1.20245 10.087 1.20245 9.91265 1.2535 9.7501C1.57176 8.73681 2.06092 7.79985 2.68669 6.97295C2.96442 6.60595 3.48707 6.53359 3.85407 6.81132Z' fill='%2392969F'/%3E%3C/svg%3E");
+      }
+
+      &.show-toggle.on {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.98458 13.9438C9.01217 13.9431 8.07978 13.5698 7.39201 12.9058C6.70424 12.2419 6.31729 11.3414 6.31608 10.4022C6.31608 8.44895 7.9615 6.86051 9.98458 6.86051C10.957 6.86121 11.8894 7.23452 12.5771 7.89851C13.2649 8.5625 13.6519 9.46292 13.6531 10.4022C13.6531 12.3554 12.0077 13.9438 9.98458 13.9438ZM10.0002 3.33301C4.94016 3.33301 0.833496 7.61842 0.833496 10.4163C0.833496 13.1487 5.02908 17.4997 10.0002 17.4997C14.9712 17.4997 19.1668 13.1487 19.1668 10.4163C19.1668 7.61842 15.0592 3.33301 10.0002 3.33301Z' fill='black'/%3E%3Cpath d='M10.0002 12.1872C11.0127 12.1872 11.8335 11.3943 11.8335 10.4163C11.8335 9.43834 11.0127 8.64551 10.0002 8.64551C8.98764 8.64551 8.16683 9.43834 8.16683 10.4163C8.16683 11.3943 8.98764 12.1872 10.0002 12.1872Z' fill='black'/%3E%3C/svg%3E");
+      }
+    }
+  }
+
+  .inline-flex {
+    width: 100%;
+    align-items: center;
+    border-radius: 0.4rem;
+    border-width: 0.1rem;
+    padding: 0.6rem 1.6rem;
+    border-style: solid;
+    border-color: $input-line;
+    background-color: $white-color;
+    &.p-0 {
+      padding: 0;
+    }
+    &.disabled {
+      border-color: $input-disabled-line;
+      background-color: $input-disabled-bg;
+
+      input {
+        color: $input-disabled-txt;
+      }
+    }
+
+    &.readonly {
+      background-color: #f4f4f7;
+      border-color: #eee;
+    }
+
+    &.bg-gray {
+      background-color: $readonly-color;
+    }
+
+    input {
+      line-height: 2.4rem;
+
+      &::placeholder {
+        color: $placeholder;
+      }
+    }
+    .placeholder {
+      color: $placeholder;
+      font-weight: 400;
+    }
+  }
+
+  &.readOnly {
+    .inline-flex {
+      background-color: $readonly-color;
+    }
+  }
+  div.text {
+    word-break: break-all;
+  }
+}
+/* 일반 셀렉트박스 시작 */
+.select-box {
+  select {
+    width: 100%;
+    border: 0;
+    font-size: 1.4rem;
+    height: 3.8rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0rem 1.4rem;
+    color: $input-txt;
+    border-radius: 0.4rem;
+    border: 0.1rem solid $input-line;
+    background-color: $white-color;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.57757 6.91058C3.90301 6.58514 4.43065 6.58514 4.75609 6.91058L10.0002 12.1547L15.2442 6.91058C15.5697 6.58514 16.0973 6.58514 16.4228 6.91058C16.7482 7.23602 16.7482 7.76366 16.4228 8.08909L10.5894 13.9224C10.264 14.2479 9.73634 14.2479 9.41091 13.9224L3.57757 8.08909C3.25214 7.76366 3.25214 7.23602 3.57757 6.91058Z' fill='black'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    background-position: calc(100% - 1.4rem) center;
+
+    &:disabled {
+      color: $base-txt-color;
+      border-color: $input-disabled-line;
+      background-color: $input-disabled-bg;
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.57709 6.91107C3.90252 6.58563 4.43016 6.58563 4.7556 6.91107L9.99967 12.1551L15.2438 6.91107C15.5692 6.58563 16.0968 6.58563 16.4223 6.91107C16.7477 7.23651 16.7477 7.76414 16.4223 8.08958L10.5889 13.9229C10.2635 14.2484 9.73586 14.2484 9.41042 13.9229L3.57709 8.08958C3.25165 7.76414 3.25165 7.23651 3.57709 6.91107Z' fill='%23CCCCCC'/%3E%3C/svg%3E%0A");
+    }
+
+    &.readonly {
+      pointer-events: none;
+      background-color: $input-disabled-bg;
+    }
+
+    &:focus {
+      outline: 0.1rem solid $primary-color;
+      outline-offset: 0;
+    }
+  }
+
+  &.error select,
+  select.error {
+    border-color: $error-color;
+  }
+}
+/* 일반 셀렉트박스 끝 */
