@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="./src/assets/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="./src/assets/css/front.css" />
 
+    <script src="./src/main.js"></script>
     <title>JOBLE SHOP</title>
   </head>
   <body>
@@ -25,57 +26,60 @@
           </button>
         </div>
         <nav class="commonSearch">
-          <dl>
-            <dt>사이트 선택</dt>
-            <dd>
-              <div class="select-box">
-                <select class="select">
-                  <option>전체</option>
-                  <option>조블페이</option>
-                  <option>별풍페이</option>
-                  <option>플렉스TV</option>
-                </select>
-              </div>
-            </dd>
-          </dl>
-          <dl>
-            <dt>BJ 검색</dt>
-            <dd>
-              <div class="input-box">
-                <div class="inline-flex">
-                  <input type="text" placeholder="BJ 닉네임 입력" />
-                  <div class="input-etc">
-                    <span class="max-lengTxt" tabindex="-1"><span class="current-length">0</span>/20</span>
-                    <button type="button" class="btn input-del" aria-label="입력항목 초기화"></button>
-                  </div>
-                </div>
-              </div>
-            </dd>
-          </dl>
-
-          <dl>
-            <dt>BJ 고유코드</dt>
-            <dd>
-              <div class="input-box">
-                <div class="inline-flex">
-                  <input type="text" placeholder="BJ 고유코드명 입력" />
-                  <div class="input-etc">
-                    <span class="max-lengTxt" tabindex="-1"><span class="current-length">0</span>/20</span>
-                    <button type="button" class="btn input-del" aria-label="입력항목 초기화"></button>
-                  </div>
-                </div>
-              </div>
-            </dd>
-          </dl>
-
-          <div>
+          <div class="inner">
             <dl>
-              <dt>조회</dt>
+              <dt>사이트 선택</dt>
               <dd>
-                <button type="button">월별</button>
-                <button type="button">일별</button>
+                <div class="select-box">
+                  <button type="button" class="label">옵션 선택</button>
+                  <ul class="optionList">
+                    <li class="optionItem">전체</li>
+                    <li class="optionItem">조블페이</li>
+                    <li class="optionItem">별풍페이</li>
+                    <li class="optionItem">플렉스TV</li>
+                  </ul>
+                </div>
               </dd>
             </dl>
+            <dl>
+              <dt>BJ 검색</dt>
+              <dd>
+                <div class="input-box">
+                  <div class="inline-flex">
+                    <input type="text" placeholder="BJ 닉네임 입력" />
+                    <div class="input-etc">
+                      <span class="max-lengTxt" tabindex="-1"><span class="current-length">0</span>/20</span>
+                      <button type="button" class="btn input-del" aria-label="입력항목 초기화"></button>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt>BJ 고유코드</dt>
+              <dd>
+                <div class="input-box">
+                  <div class="inline-flex">
+                    <input type="text" placeholder="BJ 고유코드명 입력" />
+                    <div class="input-etc">
+                      <span class="max-lengTxt" tabindex="-1"><span class="current-length">0</span>/20</span>
+                      <button type="button" class="btn input-del" aria-label="입력항목 초기화"></button>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+
+            <div>
+              <dl>
+                <dt>조회</dt>
+                <dd>
+                  <button type="button">월별</button>
+                  <button type="button">일별</button>
+                </dd>
+              </dl>
+            </div>
           </div>
         </nav>
       </header>
@@ -108,5 +112,5 @@
       </footer>
     </div>
   </body>
-  <script type="javascript" src="./src/main.js"></script>
+  <script type="javascript" src="./src/main.js"></>
 </html>
