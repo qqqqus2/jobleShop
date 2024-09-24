@@ -1,0 +1,45 @@
+/*** 공통 테이블 스타일 시작 ***/
+.table-wrap {
+  width: 100%;
+  overflow: auto;
+  min-width: 10.2rem;
+}
+.table {
+  width: 100%;
+  min-width: 102rem;
+  border-bottom: 0.1rem $black-color solid;
+  th,
+  td {
+    @include font(1.2rem, 500, 2rem);
+    padding: 1rem 0;
+    text-align: center;
+    border-collapse: collapse;
+    word-break: break-word;
+    white-space: nowrap;
+    color: $input-txt;
+    @include media-min-width(1025) {
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+    }
+  }
+
+  th {
+    @include font(1.4rem, 500, 2rem);
+    color: $base-txt-color;
+    background-color: $background-color;
+    border-top: 0.2rem solid $black-color;
+    border-bottom: 0.1rem solid $black-color;
+  }
+
+  td {
+    border-top: 0.1rem $box-line solid;
+  }
+}
+
+.msg-result + .desc-list + .table-wrap {
+  margin-top: 7.2rem;
+  @include media-min-width(1025) {
+    margin-top: 9.2rem;
+  }
+}
+/*** 공통 테이블 스타일 끝 ***/

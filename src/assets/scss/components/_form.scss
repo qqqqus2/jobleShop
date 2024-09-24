@@ -47,6 +47,7 @@ input[type='number'] {
     //gap: 0 0.8rem;
     padding-left: 0.8rem;
     align-items: center;
+    flex: 0 0 auto;
     button {
       width: 2rem;
       height: 2rem;
@@ -143,10 +144,12 @@ select::-ms-expand {
 
 .select-box {
   position: relative;
-  width: 15rem;
+  width: 100%;
+  min-width: 15rem;
   height: 3.8rem;
   border-radius: 0.4rem;
   border: 0.1rem solid #949494;
+  background-color: $white-color;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.57757 6.91058C3.90301 6.58514 4.43065 6.58514 4.75609 6.91058L10.0002 12.1547L15.2442 6.91058C15.5697 6.58514 16.0973 6.58514 16.4228 6.91058C16.7482 7.23602 16.7482 7.76366 16.4228 8.08909L10.5894 13.9224C10.264 14.2479 9.73634 14.2479 9.41091 13.9224L3.57757 8.08909C3.25214 7.76366 3.25214 7.23602 3.57757 6.91058Z' fill='black'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 1.4rem;
@@ -163,6 +166,8 @@ select::-ms-expand {
     background: transparent;
     cursor: pointer;
     font-size: 1.4rem;
+    color: $placeholder;
+    font-weight: 400;
   }
   .optionList {
     position: absolute;
@@ -217,3 +222,38 @@ select::-ms-expand {
 }
 
 /* 일반 셀렉트박스 끝 */
+
+/* 달력 */
+.qs-datepicker-container {
+  width: auto !important;
+}
+.qs-datepicker {
+  font-size: 1.6rem; /* 기본 폰트 크기를 1rem으로 설정 */
+  width: 22rem; /* 달력의 전체 너비 조정 */
+  .qs-squares {
+    padding: 0.8rem;
+  }
+}
+/* customClass 스타일 */
+.qs-controls {
+  background-color: $primary-blue1 !important;
+  color: $black-color;
+}
+.qs-day {
+  color: #333;
+}
+.qs-active,
+.qs-range-middle {
+  background-color: #4caf50;
+  color: white;
+}
+/* 일요일 (첫 번째 열) 색상 변경 */
+.qs-day:nth-child(7n + 1),
+.qs-num:nth-child(7n + 1) {
+  color: $error-color;
+}
+/* 토요일 (마지막 열) 색상 변경 */
+.qs-day:nth-child(7n),
+.qs-num:nth-child(7n) {
+  color: $primary-blue4;
+}

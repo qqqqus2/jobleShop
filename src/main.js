@@ -28,6 +28,61 @@ function commonUI() {
 
   // 문서 전체에 클릭 이벤트 리스너 추가
   document.addEventListener('click', closeAllSelectBoxes);
+
+  // 달력
+  // Datepicker 초기화
+  // 공통 옵션
+  // 공통 옵션
+  const commonOptions = {
+    startDay: 0,
+    customDays: ['일', '월', '화', '수', '목', '금', '토'],
+    customMonths: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    overlayButton: '선택',
+    overlayPlaceholder: '연도 입력 (4자리)',
+    customClass: 'custom-datepicker',
+    formatter: (input, date, instance) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      input.value = `${year}-${month}-${day}`;
+    }
+  };
+
+  // 시작일 Datepicker
+  const startPicker = datepicker('#start-date', {
+    ...commonOptions,
+    position: 'bl',
+    onSelect: (instance, selectedDate) => {
+      endPicker.setMin(selectedDate);
+    },
+    onShow: (instance) => {
+      const endDate = endPicker.dateSelected;
+      if (endDate) {
+        instance.setMax(endDate);
+      }
+    }
+  });
+
+  // 종료일 Datepicker
+  const endPicker = datepicker('#end-date', {
+    ...commonOptions,
+    position: 'bl',
+    onSelect: (instance, selectedDate) => {
+      startPicker.setMax(selectedDate);
+    },
+    onShow: (instance) => {
+      const startDate = startPicker.dateSelected;
+      if (startDate) {
+        instance.setMin(startDate);
+      }
+    }
+  });
+
+  // 오늘 날짜를 기본값으로 설정
+  const today = new Date();
+  startPicker.setDate(today);
+  endPicker.setDate(today);
+  endPicker.setMin(today);
 }
 
 function updateInputBoxClass() {
