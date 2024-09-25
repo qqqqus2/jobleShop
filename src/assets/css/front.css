@@ -28051,7 +28051,8 @@ input[type=number] {
   font-weight: 400;
 }
 .input-box .inline-flex .max-lengTxt {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #0055b9;
   margin-right: 0.4rem;
 }
@@ -28351,6 +28352,25 @@ select::-ms-expand {
 #header .commonSearch .inner dt {
   font-size: 1.2rem;
   margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+@media (max-width: 780px) {
+  #header .commonSearch .inner {
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #header .commonSearch .inner .flex {
+    width: 100%;
+  }
+  #header .commonSearch .inner .flex.mr-10, #header .commonSearch .inner .flex.ml-10 {
+    margin: 0 !important;
+  }
+  #header .commonSearch .inner .flex .date-wrap .input-box {
+    width: 100%;
+  }
 }
 #header .commonSearch .bj-wrap {
   position: relative;
@@ -28366,9 +28386,21 @@ select::-ms-expand {
   bottom: 0;
 }
 #header .commonSearch .btn-primary {
-  height: 10.5rem;
+  font-size: 1.6rem;
+  margin-top: 1.2rem;
+}
+@media (min-width: 781px) {
+  #header .commonSearch .btn-primary {
+    height: 10.5rem;
+    margin: 0;
+  }
 }
 
+@media (max-width: 780px) {
+  .searchOpen {
+    overflow: hidden;
+  }
+}
 .searchOpen #header .btn-search {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.05752 7.05703C7.57822 6.53633 8.42244 6.53633 8.94313 7.05703L16.0003 14.1142L23.0575 7.05703C23.5782 6.53633 24.4224 6.53633 24.9431 7.05703C25.4638 7.57773 25.4638 8.42195 24.9431 8.94265L17.8859 15.9998L24.9431 23.057C25.4638 23.5777 25.4638 24.4219 24.9431 24.9426C24.4224 25.4633 23.5782 25.4633 23.0575 24.9426L16.0003 17.8855L8.94313 24.9426C8.42244 25.4633 7.57822 25.4633 7.05752 24.9426C6.53682 24.4219 6.53682 23.5777 7.05752 23.057L14.1147 15.9998L7.05752 8.94265C6.53682 8.42195 6.53682 7.57773 7.05752 7.05703Z' fill='%231A1B1D'/%3E%3C/svg%3E");
 }
@@ -28376,10 +28408,25 @@ select::-ms-expand {
   opacity: 1;
   top: 7.2rem;
   visibility: visible;
+  overflow: auto;
 }
-.searchOpen #container {
-  padding-top: 20rem;
-  padding-bottom: 20rem;
+@media (max-width: 780px) {
+  .searchOpen #header .commonSearch::before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@media (min-width: 781px) {
+  .searchOpen #container {
+    padding-top: 20rem;
+    padding-bottom: 20rem;
+  }
 }
 
 .inner {
@@ -28439,6 +28486,9 @@ select::-ms-expand {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.2rem;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 #footer .flex-column a {
   font-weight: 600;
