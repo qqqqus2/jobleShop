@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href="./src/assets/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="./src/assets/css/front.css" />
     <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css" />
-    <script src="./src/main.js"></script>
     <title>JOBLE SHOP</title>
   </head>
   <body>
@@ -114,8 +113,8 @@
       <section id="container">
         <div class="inner">
           <!-- 전체 적립금 조회 -->
-          <h3 class="tit">전체 적립금 조회</h3>
-
+          <h3 class="tit">전체 적립금 조회(최근 5년)</h3>
+          <div id="main" class="h-300 w-100p mt-30"></div>
           <!-- 상세 테이블 -->
           <h4 class="sub-tit">상세 조회 결과</h4>
           <div class="table-wrap mt-12">
@@ -183,8 +182,95 @@
                   <td>조블페이</td>
                   <td>sospolo</td>
                 </tr>
+                <tr>
+                  <td>3</td>
+                  <td>2024-02-03</td>
+                  <td>케이</td>
+                  <td>bj케이</td>
+                  <td>10,000</td>
+                  <td>20,000</td>
+                  <td>D-20240103-0000141-00</td>
+                  <td>sospolo</td>
+                  <td>조블페이</td>
+                  <td>sospolo</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>2024-02-03</td>
+                  <td>케이</td>
+                  <td>bj케이</td>
+                  <td>10,000</td>
+                  <td>20,000</td>
+                  <td>D-20240103-0000141-00</td>
+                  <td>sospolo</td>
+                  <td>조블페이</td>
+                  <td>sospolo</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>2024-02-03</td>
+                  <td>케이</td>
+                  <td>bj케이</td>
+                  <td>10,000</td>
+                  <td>20,000</td>
+                  <td>D-20240103-0000141-00</td>
+                  <td>sospolo</td>
+                  <td>조블페이</td>
+                  <td>sospolo</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>2024-02-03</td>
+                  <td>케이</td>
+                  <td>bj케이</td>
+                  <td>10,000</td>
+                  <td>20,000</td>
+                  <td>D-20240103-0000141-00</td>
+                  <td>sospolo</td>
+                  <td>조블페이</td>
+                  <td>sospolo</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>2024-02-03</td>
+                  <td>케이</td>
+                  <td>bj케이</td>
+                  <td>10,000</td>
+                  <td>20,000</td>
+                  <td>D-20240103-0000141-00</td>
+                  <td>sospolo</td>
+                  <td>조블페이</td>
+                  <td>sospolo</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>2024-02-03</td>
+                  <td>케이</td>
+                  <td>bj케이</td>
+                  <td>10,000</td>
+                  <td>20,000</td>
+                  <td>D-20240103-0000141-00</td>
+                  <td>sospolo</td>
+                  <td>조블페이</td>
+                  <td>sospolo</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>2024-02-03</td>
+                  <td>케이</td>
+                  <td>bj케이</td>
+                  <td>10,000</td>
+                  <td>20,000</td>
+                  <td>D-20240103-0000141-00</td>
+                  <td>sospolo</td>
+                  <td>조블페이</td>
+                  <td>sospolo</td>
+                </tr>
               </tbody>
             </table>
+          </div>
+          <div class="flex mt-20">
+            <button type="button" class="btn btn-blueLine">더보기 버튼</button>
           </div>
         </div>
       </section>
@@ -204,7 +290,47 @@
         <a href="javascript:void(0)" role="button" class="scrollTopBtn" title="컨텐츠 상단으로 이동" aria-label="컨텐츠 상단으로 이동"> Top </a>
       </footer>
     </div>
+    <script src="./src/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-datepicker/dist/datepicker.min.js"></script>
-    <script type="javascript" src="./src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script>
+      // 차트 코드
+      // var echarts = require('echarts');
+      var chartDom = document.getElementById('main');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        legend: {},
+        tooltip: {},
+        dataset: {
+          source: [
+            ['사이트', '2024', '2023', '2022', '2021', '2020'],
+            ['조블페이', 16000, 10000, 30000, 10000, 1000],
+            ['별풍페이', 860, 921, 857, 830, 10],
+            ['플렉스 TV', 2419, 672, 795, 864, 300]
+          ]
+        },
+        xAxis: [
+          { type: 'category', gridIndex: 0 }
+          // { type: 'category', gridIndex: 1 }
+        ],
+        yAxis: [{ gridIndex: 0 }],
+        grid: [{ bottom: '15%' }],
+        series: [
+          // These series are in the first grid.
+          { type: 'bar', seriesLayoutBy: 'row' },
+          { type: 'bar', seriesLayoutBy: 'row' },
+          { type: 'bar', seriesLayoutBy: 'row' }
+        ]
+      };
+
+      option && myChart.setOption(option);
+
+      // 윈도우 리사이즈 이벤트에 대한 리스너 추가
+      window.addEventListener('resize', function () {
+        myChart.resize();
+      });
+    </script>
   </body>
 </html>
