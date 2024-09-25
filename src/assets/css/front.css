@@ -27326,6 +27326,14 @@ strong {
 .btn.btn-primary:active {
   background-color: #1573e1;
 }
+.btn.btn-red {
+  color: #fff;
+  background-color: #e00c3e;
+  font-weight: 700;
+}
+.btn.btn-red:hover {
+  background-color: red;
+}
 .btn.btn-lightBlue {
   border: 0.1rem solid;
   border-color: transparent;
@@ -27465,11 +27473,11 @@ strong {
 .btn.btn-tiny {
   font-size: 1.3rem;
   line-height: 1.8rem;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 0.4rem;
   border-width: 0.1rem;
   -webkit-box-sizing: border-box;
@@ -28106,16 +28114,16 @@ select::-ms-expand {
   top: 4.2rem;
   left: 0;
   width: 100%;
-  border: 0.1rem #949494 solid;
-  background: #fff;
+  border: 0.2rem #949494 solid;
+  background: #f5f5f5;
   color: #000;
   list-style-type: none;
   padding: 0;
   border-radius: 0.6rem;
   overflow: hidden;
   max-height: 0;
-  -webkit-transition: 0.3s ease-in;
-  transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in max-height;
+  transition: 0.3s ease-in max-height;
   font-size: 1.4rem;
   opacity: 0;
   box-shadow: -0.1rem 0.7rem 1.1rem -0.4rem rgba(0, 0, 0, 0.25);
@@ -28137,7 +28145,7 @@ select::-ms-expand {
 }
 .select-box .optionItem {
   border-bottom: 0.1rem solid #949494;
-  padding: 0.6rem 1.5rem 0.6rem;
+  padding: 0.8rem 1.6rem 0.8rem;
 }
 .select-box .optionItem:last-child {
   border: 0;
@@ -28408,7 +28416,6 @@ select::-ms-expand {
   opacity: 1;
   top: 7.2rem;
   visibility: visible;
-  overflow: auto;
 }
 @media (max-width: 780px) {
   .searchOpen #header .commonSearch::before {
@@ -28557,9 +28564,34 @@ select::-ms-expand {
   display: -ms-flexbox;
   display: flex;
 }
-.date-wrap .input-box input {
+
+.date-input input {
   background-position: right center;
   background-size: 2rem 2rem;
   background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 2C8.55228 2 9 2.44772 9 3V4H15V3C15 2.44772 15.4477 2 16 2C16.5523 2 17 2.44772 17 3V4H19C20.6569 4 22 5.34315 22 7V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V7C2 5.34315 3.34315 4 5 4H7V3C7 2.44772 7.44772 2 8 2ZM7 6H5C4.44772 6 4 6.44772 4 7V19C4 19.5523 4.44772 20 5 20H19C19.5523 20 20 19.5523 20 19V7C20 6.44772 19.5523 6 19 6H17V7C17 7.55228 16.5523 8 16 8C15.4477 8 15 7.55228 15 7V6H9V7C9 7.55228 8.55228 8 8 8C7.44772 8 7 7.55228 7 7V6ZM6 11C6 10.4477 6.44772 10 7 10H17C17.5523 10 18 10.4477 18 11C18 11.5523 17.5523 12 17 12H7C6.44772 12 6 11.5523 6 11Z' fill='black'/%3E%3C/svg%3E");
+}
+
+.regist-form {
+  max-width: 78rem;
+  margin: auto;
+}
+.regist-form .flex {
+  margin-top: 1.6rem;
+}
+.regist-form dl dt {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.regist-form .del-data {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.regist-form .del-data .btn-red {
+  margin-left: 0 !important;
+  width: 100% !important;
+  margin-top: 1.2rem;
 }

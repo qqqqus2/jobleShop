@@ -175,15 +175,15 @@ select::-ms-expand {
     top: 4.2rem;
     left: 0;
     width: 100%;
-    border: 0.1rem #949494 solid;
-    background: #fff;
+    border: 0.2rem #949494 solid;
+    background: $background-color;
     color: #000;
     list-style-type: none;
     padding: 0;
     border-radius: 0.6rem;
     overflow: hidden;
     max-height: 0;
-    transition: 0.3s ease-in;
+    transition: 0.3s ease-in max-height;
     font-size: 1.4rem;
     opacity: 0;
     box-shadow: -0.1rem 0.7rem 1.1rem -0.4rem rgba(0, 0, 0, 0.25);
@@ -205,7 +205,7 @@ select::-ms-expand {
   }
   .optionItem {
     border-bottom: 0.1rem solid #949494;
-    padding: 0.6rem 1.5rem 0.6rem;
+    padding: 0.8rem 1.6rem 0.8rem;
     &:last-child {
       border: 0;
     }

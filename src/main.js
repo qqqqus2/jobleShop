@@ -12,9 +12,9 @@ function commonUI() {
     document.body.classList.toggle('searchOpen');
   });
 
-  updateInputBoxClass();
   setupInputDeletion();
   setupInputLengthUpdate();
+  updateInputBoxClass();
 
   document.addEventListener('input', function (event) {
     if (event.target.closest('.input-box')) {
@@ -78,13 +78,38 @@ function commonUI() {
     }
   });
 
+  // 이벤트 날짜 Datepicker
+  const etcPicker = datepicker('.etc-date', {
+    ...commonOptions,
+    position: 'bl'
+  });
+
   // 오늘 날짜를 기본값으로 설정
   const today = new Date();
   startPicker.setDate(today);
   endPicker.setDate(today);
   endPicker.setMin(today);
+  etcPicker.setDate(today);
 }
 
+// 인풋요소 초기화 버튼
+function setupInputDeletion() {
+  const inputBoxes = document.querySelectorAll('.input-box');
+
+  inputBoxes.forEach((box) => {
+    const deleteButton = box.querySelector('.input-del');
+    const input = box.querySelector('input');
+
+    if (deleteButton && input) {
+      deleteButton.addEventListener('click', function () {
+        input.value = '';
+        updateInputBoxClass();
+      });
+    }
+  });
+}
+
+// 인풋요소 글자수 표기
 function updateInputBoxClass() {
   const inputBoxes = document.querySelectorAll('.input-box');
 
@@ -107,42 +132,64 @@ function updateInputBoxClass() {
   });
 }
 
-// 인풋요소 초기화 버튼
-function setupInputDeletion() {
-  const inputBoxes = document.querySelectorAll('.input-box');
-
-  inputBoxes.forEach((box) => {
-    const deleteButton = box.querySelector('.input-del');
-    const input = box.querySelector('input');
-
-    if (deleteButton && input) {
-      deleteButton.addEventListener('click', function () {
-        input.value = '';
-        updateInputBoxClass();
-      });
-    }
-  });
-}
-
-// 인풋요소 최대 20자까지
-const MAX_LENGTH = 20;
-
-function setupInputLengthUpdate() {
+// 인풋요소 최대 글자수 막음
+function updateInputBoxClass() {
   const inputBoxes = document.querySelectorAll('.input-box');
 
   inputBoxes.forEach((box) => {
     const input = box.querySelector('input');
     const currentLengthElement = box.querySelector('.max-lengTxt .current-length');
+    const maxLengthElement = box.querySelector('.max-lengTxt .max-length');
 
-    if (input && currentLengthElement) {
-      input.addEventListener('input', function () {
-        if (this.value.length > MAX_LENGTH) {
-          this.value = this.value.slice(0, MAX_LENGTH);
+    if (input) {
+      // 'mx-{number}' 클래스에서 최대 길이 추출
+      const maxLengthClass = Array.from(box.classList).find((cls) => cls.startsWith('mxLeng-'));
+      const maxLength = maxLengthClass ? parseInt(maxLengthClass.split('-')[1]) : 20; // 기본값 20
+
+      // 입력값이 있으면 'hasValue' 클래스 추가, 없으면 제거
+      if (input.value.trim() !== '') {
+        box.classList.add('hasValue');
+      } else {
+        box.classList.remove('hasValue');
+      }
+
+      // 현재 텍스트 길이를 업데이트
+      if (currentLengthElement) {
+        currentLengthElement.textContent = input.value.length;
+      }
+
+      // 최대 길이 표시 업데이트
+      if (maxLengthElement) {
+        maxLengthElement.textContent = maxLength;
+      }
+
+      // 입력 길이에 따른 클래스 업데이트
+      if (input.value.length === 0) {
+        box.classList.remove('valid', 'invalid');
+      } else if (input.value.length === maxLength) {
+        box.classList.add('invalid');
+        box.classList.remove('valid');
+      } else {
+        box.classList.add('valid');
+        box.classList.remove('invalid');
+      }
+
+      // 최대 길이 제한 적용
+      if (input.value.length > maxLength) {
+        input.value = input.value.slice(0, maxLength);
+        if (currentLengthElement) {
+          currentLengthElement.textContent = maxLength;
         }
-        currentLengthElement.textContent = this.value.length;
-        updateInputBoxClass();
-      });
+      }
     }
+  });
+}
+
+// 이벤트 리스너 설정
+function setupInputLengthUpdate() {
+  const inputs = document.querySelectorAll('.input-box input');
+  inputs.forEach((input) => {
+    input.addEventListener('input', updateInputBoxClass);
   });
 }
 
